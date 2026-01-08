@@ -18,7 +18,7 @@ def markdown_to_blocks(markdown):
     return blocks
 
 def block_to_block_type(block):
-    if block.startswith("#"):
+    if block.startswith(("# ", "## ", "### ", "#### ", "##### ", "###### ")):
         return BlockType.HEADING
     elif block.startswith("```\n") and block.endswith("```"):
         return BlockType.CODE
