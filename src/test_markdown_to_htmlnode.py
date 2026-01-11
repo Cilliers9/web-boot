@@ -1,5 +1,5 @@
 import unittest
-from markdown_to_htmlnode import markdown_to_htmlnode
+from markdown_to_htmlnode import markdown_to_htmlnode, extract_header
 from htmlnode import HTMLNode, ParentNode, LeafNode
 
 
@@ -96,3 +96,8 @@ This is a paragraph with **bold** and _italic_ text. It includes a [link to exam
             html,
             '<div><h1>Header 1</h1><h2>Header 2</h2><p>This is a paragraph with <b>bold</b> and <i>italic</i> text. It includes a <a href="https://www.example.com">link to example.com</a>.</p></div>',
         )
+
+    def test_extract_header(self):
+        md = " # Header 1 Testing  "
+        header = extract_header(md)
+        self.assertEqual(header, "Header 1 Testing")

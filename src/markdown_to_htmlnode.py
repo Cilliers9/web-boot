@@ -69,3 +69,13 @@ def markdown_to_htmlnode(markdown):
         div_children.append(block_to_htmlnode(block, block_type))
     html_node = ParentNode("div", div_children)
     return html_node
+
+def extract_header(markdown):
+    stripped_md = markdown.strip()
+    if stripped_md.startswith("# "):
+        lines = stripped_md.splitlines()
+        header = lines[0].removeprefix("# ").strip()
+        return header
+    else:
+        raise Exception("No header in markdown")
+    

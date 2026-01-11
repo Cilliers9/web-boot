@@ -1,13 +1,12 @@
 import os
 import shutil
+from constant import PUBLIC_DIR, STATIC_DIR
 
 def update_public():
-    public_dir = os.path.abspath("./public")
-    static_dir = os.path.abspath("./static")
-    if os.path.exists(public_dir):
-        shutil.rmtree(public_dir)
-    os.mkdir(public_dir)
-    copy_static_to_public(static_dir, public_dir)
+    if os.path.exists(PUBLIC_DIR):
+        shutil.rmtree(PUBLIC_DIR)
+    os.mkdir(PUBLIC_DIR)
+    copy_static_to_public(STATIC_DIR, PUBLIC_DIR)
 
 
 def copy_static_to_public(source, destination):
