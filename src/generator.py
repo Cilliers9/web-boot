@@ -10,8 +10,8 @@ def generate_page(from_path, template_path, dest_path, basepath):
     html_nodes = markdown_to_htmlnode(markdown)
     html_string = html_nodes.to_html()
     header = extract_header(markdown)
-    html = html_template.replace("{{ Title }}", header).replace("{{ Content }}", html_string)
-    
+    html = html_template.replace("{{ Title }}", header).replace("{{ Content }}", html_string).replace('href="/', f'href="{basepath}').replace('src="/', f'src="{basepath}')
+
     dest_dir = os.path.dirname(dest_path)
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)

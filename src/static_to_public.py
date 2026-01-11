@@ -11,11 +11,9 @@ def update_public():
 
 def copy_static_to_public(source, destination):
     source_dir_sub = os.listdir(source)
-    print(source_dir_sub)
     if len(source_dir_sub) == 0:
         return
     for sub in source_dir_sub:
-        print(sub)
         sub_source = os.path.join(source, sub)
         desti_path = os.path.join(destination, sub)
         if os.path.isfile(sub_source):
